@@ -1,15 +1,5 @@
 # Estabelecimento de Chave Secreta com Diffie-Hellman
 
-texto
-texto
-texto
+Esse trabalho refere-se a disciplina de Redes de Computadores - CI1061 Ofertada pelo departamento de Informática da Universidade Federal do Paraná (UFPR).
 
-
-mais texto
-
-# exemplo de header
-
-## sub header
-
-
-#lalalal
+O link da documentação pode ser encontrado em: https://joaoluisro.github.io/Diffie-Hellman/
