@@ -1,2 +1,14 @@
-site_name: My Docs
+site_name: Trabalho prático de Redes II - CI1061
 site_url: https://example.com/
+repo_url: https://github.com/joaoluisro/Diffie-Hellman/tree/master
+theme:
+  name: material
+  highlightjs:  true
+  palette:
+    primary:  teal
+  language: pt
+  features:
+    - header.autohide
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences

@@ -1,0 +1,34 @@
+
+class LogFile:
+    def __init__(self, filename, ps_num):
+        self.filename = filename
+        self.line_num = 0
+        self.file = open(filename, "w")
+        if(ps_num < 0):
+            self.file.write("INICIO LOG PROCESSO " + str(ps_num) + "\n\n")
+        else:
+            self.file.write("INICIO LOG SERVIDOR")
+    def write_log(self, log_msg):
+        full_message = "[" + str(self.line_num) + "] "
+        full_message += log_msg
+        if '\n' in log_msg:
+            append = '\n'
+        else:
+            append = '\n\n'
+        full_message += append
+        self.file.write(full_message)
+        self.line_num += 1
+
+    def log_recv(self, log_msg):
+        full_message = "Recebido: "
+        full_message += log_msg
+        self.write_log(full_message)
+
+    def log_send(self, log_msg):
+        full_message = "Enviado: "
+        full_message += log_msg
+        self.write_log(full_message)
+
+    def end_log(self):
+        self.file.write(" --- FIM DO LOG ---\n")
+        self.file.close()

@@ -1,0 +1,24 @@
+from Crypto.Cipher import AES
+
+#retorna a chave com padding para ficar com 16 bytes
+def encode_key(key):
+    encoded_key = str(key).encode()
+    encoded_key = b'0'*(16 - len(encoded_key)) + encoded_key
+    return encoded_key
+
+# retornam strings
+def encrypt(msg, key):
+    encoded_key = encode_key(key)
+    cipher = AES.new(encoded_key)
+    # é necessário que a mensagem seja multiplo de 16
+    msg = msg.encode()
+    padded_msg = msg + (b'#'* ((16-len(msg)) % 16))
+    encrypted_msg = cipher.encrypt(padded_msg)
+    return encrypted_msg
+
+def decrypt(msg, key):
+    encoded_key = encode_key(key)
+    cipher = AES.new(encoded_key)
+    decrypted_msg = cipher.decrypt(msg)
+    unpadded_msg = decrypted_msg.decode('utf-8', errors='ignore').rstrip('#')
+    return unpadded_msg

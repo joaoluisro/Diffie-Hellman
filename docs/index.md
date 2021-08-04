@@ -1,17 +1,10 @@
-# Welcome to MkDocs
+# Introdução
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Essa documentação refere-se ao trabalho prático da disciplina de *Redes de Computadores II - CI1061*, ofertada pelo departamento de Informática da Universidade Federal do Paraná (UFPR) no ano de 2021 no período ERE3.
 
-## Commands
+O trabalho consiste na implementação de um sistema cliente-servidor criptografado.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+A implementação foi feita utilizando a linguagem [Python](https://www.python.org/) Versão 3.8.10
 
-## Project layout
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Todos os testes foram executados no sistema operacional [Linux](https://www.linux.org/) Kernel 5.4.0-80-generic, na distribuição [Ubuntu](https://ubuntu.com/) versão 20.04.2 LTS x86_64.
