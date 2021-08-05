@@ -1,0 +1,47 @@
+INICIO LOG SERVIDOR[0] Conexao com processo 1 estabelecida.
+
+[1] Aguardando as chaves publicas ...
+
+[2] Recebido: 808178021,24
+
+[3] Chaves publicas recebidas.
+
+[4] Enviando a primeira parte da chave ...
+
+[5] Enviado: 683352597
+
+[6] Aguardando a segunda parte da chave ...
+
+[7] Recebido: 805876464
+
+[8] Chave secreta estabelecida, comunicacao criptografada pode iniciar.
+
+[9] Recebido: O que e Warren?
+
+[10] Enviado: Deus! Se voce pudesse ver o que eu estou vendo!
+
+[11] Recebido: Warren, o que e? O que e?
+
+[12] Enviado: Carter, e terrivel - monstruoso - inacreditavel!
+
+[13] Recebido: Warren me responda!
+
+[14] Enviado: Nao posso contar Carter! E tao absolutamente alem do pensamento! Nao ouso lhe dizer - homem algum pode conhecer isso e continuar vivendo! Meu deus! Eu nunca sonhei com isso!
+
+[15] Recebido: Warren, porfavor, o que voce encontrou?
+
+[16] Enviado: Carter! Pelo amor de Deus, ponha a laje de volta e saia daqui se puder! Rapido! Largue tudo e saia! E sua unica chance! Faca o que eu digo e nao peca explicacoes!
+
+[17] Recebido: Warren, aguente firme! Estou descendo!
+
+[18] Enviado: Nao! Voce nao compreende! E tarde demais - e e minha culpa. Devolva a laje e corra - nao ha nada que voce ou qualquer outro possa fazer agora!
+
+[19] Recebido: O que..
+
+[20] Enviado: Rapido - antes que seja tarde!
+
+[21] Recebido: Warren! Warren! Responda-me - Voce está ai?
+
+[22] Enviado: IDIOTA! WARREN ESTÁ MORTO!
+
+ --- FIM DO LOG ---

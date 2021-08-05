@@ -25,6 +25,10 @@
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
         
+          
+          
+          <meta name="theme-color" content="#ef5552">
+        
       
     
     
@@ -52,7 +56,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="red" data-md-color-accent="">
   
     
     <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
@@ -61,6 +65,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#logging" class="md-skip">
+          Ir para o conteúdo
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -255,7 +264,7 @@
   
     <li class="md-nav__item">
       <a href="../server-client/" class="md-nav__link">
-        Implementação em código
+        Implementação do sistema
       </a>
     </li>
   
@@ -275,6 +284,8 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Logging
@@ -291,6 +302,23 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -301,9 +329,36 @@
                   </a>
                 
                 
-                  <h1>Logging</h1>
-                
-                
+                <h1 id="logging">Logging</h1>
+<p>O logging do sistema foi feito através de funções auxiliares contidas no arquivo <em>loggingutils.py</em> que pode ser encontrado <a href="../loggingutils.py.txt">aqui</a>.</p>
+<p>Nele está descrito a classe <em>LogFile</em>, que possui alguns métodos importantes:</p>
+<ul>
+<li>
+<p><code>write_log</code>: Escreve uma mensagem no log criado.</p>
+</li>
+<li>
+<p><code>log_recv</code>: Escreve uma mensagem de recebido no log criado, seguido da mensagem recebida.</p>
+</li>
+<li>
+<p><code>log_send</code>: Escreve a mensagem enviada no log criado.</p>
+</li>
+<li>
+<p><code>log_end</code>: Encerra o log criado.</p>
+</li>
+</ul>
+<h2 id="logs-de-testes">Logs de testes</h2>
+<p>Os logs de teste que utilizaram a chave correta para codificar e decodificar as mensagens são mostrados a seguir:</p>
+<ul>
+<li><a href="../client-original.log.txt">client-original.log</a></li>
+<li><a href="../server1-original.log.txt">server1-original.log</a></li>
+</ul>
+<p>Neles, podemos acompanhar a narrativa dos dois personagens Carter e Warren, que tiveram um final trágico.</p>
+<p>No entanto, para observar o comportamento de um agente malicioso, os logs de teste com as chaves secretas incorretas também são mostrados a seguir :</p>
+<ul>
+<li><a href="../client-m.log.txt">client-m.log</a></li>
+<li><a href="../server2-m.log.txt">server2-m.log</a></li>
+</ul>
+<p>Os caracteres estranhos podem ser explicados pela codificação UTF-8, que interpreta bytes "fora do lugar" com símbolos de certa forma aleatória.</p>
                 
               
               
@@ -323,7 +378,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../server-client/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Implementação em código" rel="prev">
+        <a href="../server-client/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Implementação do sistema" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -332,7 +387,7 @@
               <span class="md-footer__direction">
                 Anterior
               </span>
-              Implementação em código
+              Implementação do sistema
             </div>
           </div>
         </a>

@@ -16,7 +16,7 @@
     
     
       
-        <title>Implementação em código - Diffie-Hellman</title>
+        <title>Implementação do sistema - Diffie-Hellman</title>
       
     
     
@@ -24,6 +24,10 @@
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ef5552">
         
       
     
@@ -52,7 +56,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="red" data-md-color-accent="">
   
     
     <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
@@ -63,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#implementacao-em-codigo" class="md-skip">
+        <a href="#implementacao-do-sistema" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -93,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Implementação em código
+              Implementação do sistema
             
           </span>
         </div>
@@ -269,7 +273,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Implementação em código
+        Implementação do sistema
       </a>
       
     </li>
@@ -325,7 +329,18 @@
                   </a>
                 
                 
-                <h1 id="implementacao-em-codigo">Implementação em código</h1>
+                <h1 id="implementacao-do-sistema">Implementação do sistema</h1>
+<p>A partir da API de sockets e os recursos fornecidos pela linguagem Python, o sistema cliente-servidor criptografado foi implementado. A comunicação ocorre por meio dos padrões TCP/IP, que é definida na criação dos sockets de cada processo.</p>
+<p>O sistema pode ser executado a partir dos comandos:</p>
+<div class="highlight"><pre><span></span><code>python3 servidor.py
+python3 cliente.py
+</code></pre></div>
+<p>O servidor inicialmente é associado ao endereço 127.0.0.1 (localhost) e a porta 1026 através da criação de um socket e pela chamada da função <em>bind</em>. Em seguida, ele é colocado em modo de escuta através de <em>listen</em>, que permite identificá-lo como servidor. Após isso, o servidor entra em um laço infinito que aguarda uma conexão com algum cliente.</p>
+<p>O cliente também cria um socket para comunicar-se, no entanto, utiliza a chamada <em>connect</em> para conectar-se ao servidor, informando o endereço e porta de destino.</p>
+<p>Depois que cliente e servidor estabeleceram a conexão, o procedimento de estabelecimento da chave secreta de criptografia ocorre como descrito na seção anterior.</p>
+<p>Quando cada processo já possui a chave secreta, a comunicação ocorre por meio do padrão request/reply. Neste padrão, servidor e cliente trocam mensagens de forma sequencial, isto é, o cliente envia uma mensagem e o servidor responde, até que não existam mais mensagens a serem trocadas.</p>
+<p>A implementação do servidor pode ser encontrada no arquivo <em>servidor.py</em> e pode ser acessado <a href="../servidor.py.txt">aqui</a>.</p>
+<p>A implementação do cliente pode ser encontrada no arquivo <em>cliente.py</em> e pode ser acessado <a href="../cliente.py.txt">aqui</a>.</p>
                 
               
               
