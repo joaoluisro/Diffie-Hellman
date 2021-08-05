@@ -1,14 +1,22 @@
-site_name: Trabalho prático de Redes II - CI1061
+site_name: Diffie-Hellman
 site_url: https://example.com/
 repo_url: https://github.com/joaoluisro/Diffie-Hellman/tree/master
 theme:
   name: material
   highlightjs:  true
-  palette:
-    primary:  teal
   language: pt
   features:
     - header.autohide
+    - navigations.tabs
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
+  - toc:
+      toc_depth:  1
+nav:
+  - 'index.md'
+  - 'intro.md'
+  - 'cripto.md'
+  - 'API-socket.md'
+  - 'server-client.md'
+  - 'logging.md'

@@ -1,9 +1,9 @@
-#   Programa servidor do trabalho prático.
-#   Lê o arquivo 'data/server-dialog.txt' e envia ao cliente
+#   Programa servidor do trabalho pratico.
+#   Le o arquivo 'data/server-dialog.txt' e envia ao cliente
 #
-#   Autor: João Luis Ribeiro Okimoto - GRR20186983
+#   Autor: Joao Luis Ribeiro Okimoto - GRR20186983
 #   Disciplina: Redes de Computadores II - CI1061
-#   Data da última atualização: 04/08/2021
+#   Data da ultima atualizacao: 04/08/2021
 
 import socket
 import loggingutils as log
@@ -19,11 +19,11 @@ PRIVATE_KEY = randint(1, 10**5)
 # socket.socket() -> cria um objeto socket
 # AF_INET         -> Address Family InterNET (IPv4)
 # SOCK_STREAM     -> tipo de socket TCP
-# Isso significa que usaremos comunicação por TCP/IP.
+# Isso significa que usaremos comunicacao por TCP/IP.
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
-    # bind() -> associa o socket com o endereço e número da porta
+    # bind() -> associa o socket com o endereco e numero da porta
     s.bind((SERVER_IP_ADDR, PORT))
 
     # seta o socket para modo de escuta (servidor)
@@ -31,28 +31,28 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
     i = 1
 
-    # laço no qual aguardamos uma conexão com algum cliente
+    # laco no qual aguardamos uma conexao com algum cliente
 
     while True:
 
         k = 0
-        # accept() -> bloqueante, aguarda uma conexão de um cliente
-        # retorna um objeto socket que representa a conexão
-        # e uma tupla com o endereço e porta do cliente
+        # accept() -> bloqueante, aguarda uma conexao de um cliente
+        # retorna um objeto socket que representa a conexao
+        # e uma tupla com o endereco e porta do cliente
         conn, addr = s.accept()
 
-        # Abre um novo log após aceitar uma conexão
+        # Abre um novo log após aceitar uma conexao
         LOG_FILE = log.LogFile("../logs/server" + str(i)+".log",i)
-        LOG_FILE.write_log("Conexão com processo " + str(i) + " estabelecida.")
-        # Processa a conexão
+        LOG_FILE.write_log("Conexao com processo " + str(i) + " estabelecida.")
+        # Processa a conexao
         with conn:
 
-            LOG_FILE.write_log("Aguardando as chaves públicas ...")
-            # recebe as chaves públicas n e g
+            LOG_FILE.write_log("Aguardando as chaves publicas ...")
+            # recebe as chaves publicas n e g
             public_keys = conn.recv(1024).decode()
             n, g = int(public_keys.split(",")[0]), int(public_keys.split(",")[1])
             LOG_FILE.log_recv(public_keys)
-            LOG_FILE.write_log("Chaves públicas recebidas.")
+            LOG_FILE.write_log("Chaves publicas recebidas.")
 
 
             # calcula (g ^chave mod n) e envia
@@ -68,11 +68,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
             # calcula a chave secreta
             SECRET_KEY = (client_key ** PRIVATE_KEY) % n
-            LOG_FILE.write_log("Chave secreta estabelecida, comunicação criptografada pode iniciar.")
+            LOG_FILE.write_log("Chave secreta estabelecida, comunicacao criptografada pode iniciar.")
             sv_file = open("../data/server_dialog.txt", "r")
             dialog = sv_file.readlines()
 
-            # Depois do estabelecimento da chave secreta, comunicação inicia
+            # Depois do estabelecimento da chave secreta, comunicacao inicia
             while True:
 
                 # recebe uma mensagem criptografada
@@ -81,7 +81,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 # decodifica ela
                 msg = cryp.decrypt(encrypted_msg, SECRET_KEY)
 
-                # Conexão encerra quando o cliente envia b''
+                # Conexao encerra quando o cliente envia b''
                 if not msg or k >= len(dialog):
                     LOG_FILE.end_log()
                     sv_file.close()

@@ -1,9 +1,9 @@
-#   Programa cliente do trabalho prático.
-#   Lê o arquivo 'data/client-dialog.txt' e envia ao servidor
+#   Programa cliente do trabalho pratico.
+#   Le o arquivo 'data/client-dialog.txt' e envia ao servidor
 #
-#   Autor: João Luis Ribeiro Okimoto - GRR20186983
+#   Autor: Joao Luis Ribeiro Okimoto - GRR20186983
 #   Disciplina: Redes de Computadores II - CI1061
-#   Data da última atualização: 04/08/2021
+#   Data da ultima atualizacao: 04/08/2021
 
 import socket
 import loggingutils as log
@@ -17,7 +17,7 @@ PORT = 1026
 # Gera chave privada do cliente
 PRIVATE_KEY = randint(1, 10**5)
 
-# Gera os parâmetros de Diffie-Hellman
+# Gera os parametros de Diffie-Hellman
 n, g = randint(1, 10**9), randint(1, 10*5)
 
 LOG_FILE = log.LogFile("../logs/client.log",0)
@@ -25,10 +25,10 @@ LOG_FILE = log.LogFile("../logs/client.log",0)
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     # Se conecta ao servidor
     s.connect((SERVER_IP_ADDR, PORT))
-    LOG_FILE.write_log("Conexão com servidor estabelecida.")
+    LOG_FILE.write_log("Conexao com servidor estabelecida.")
 
-    # envia as chaves públicas
-    LOG_FILE.write_log("Enviando as chaves públicas geradas ...")
+    # envia as chaves publicas
+    LOG_FILE.write_log("Enviando as chaves publicas geradas ...")
     public_keys = (str(n) + "," + str(g) + "\n")
     s.send(public_keys.encode())
     LOG_FILE.log_send(public_keys)
@@ -45,7 +45,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     LOG_FILE.log_send(my_key)
 
     # calcula a chave secreta
-    LOG_FILE.write_log("Chave secreta estabelecida, comunicação criptografada pode iniciar.")
+    LOG_FILE.write_log("Chave secreta estabelecida, comunicacao criptografada pode iniciar.")
     SECRET_KEY = (server_key ** PRIVATE_KEY) % n
 
     # Abre o arquivo de dados a ser enviado
