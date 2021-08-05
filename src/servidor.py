@@ -43,16 +43,16 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
         # Abre um novo log após aceitar uma conexão
         LOG_FILE = log.LogFile("../logs/server" + str(i)+".log",i)
-        LOG_FILE.write_log("Conexão com processo " + str(i) + " estabelecida.")
+        LOG_FILE.write_log("Conexao com processo " + str(i) + " estabelecida.")
         # Processa a conexão
         with conn:
 
-            LOG_FILE.write_log("Aguardando as chaves públicas ...")
+            LOG_FILE.write_log("Aguardando as chaves publicas ...")
             # recebe as chaves públicas n e g
             public_keys = conn.recv(1024).decode()
             n, g = int(public_keys.split(",")[0]), int(public_keys.split(",")[1])
             LOG_FILE.log_recv(public_keys)
-            LOG_FILE.write_log("Chaves públicas recebidas.")
+            LOG_FILE.write_log("Chaves publicas recebidas.")
 
 
             # calcula (g ^chave mod n) e envia
@@ -68,7 +68,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
             # calcula a chave secreta
             SECRET_KEY = (client_key ** PRIVATE_KEY) % n
-            LOG_FILE.write_log("Chave secreta estabelecida, comunicação criptografada pode iniciar.")
+            LOG_FILE.write_log("Chave secreta estabelecida, comunicacao criptografada pode iniciar.")
             sv_file = open("../data/server_dialog.txt", "r")
             dialog = sv_file.readlines()
 

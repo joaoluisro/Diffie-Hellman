@@ -25,10 +25,10 @@ LOG_FILE = log.LogFile("../logs/client.log",0)
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     # Se conecta ao servidor
     s.connect((SERVER_IP_ADDR, PORT))
-    LOG_FILE.write_log("Conexão com servidor estabelecida.")
+    LOG_FILE.write_log("Conexao com servidor estabelecida.")
 
     # envia as chaves públicas
-    LOG_FILE.write_log("Enviando as chaves públicas geradas ...")
+    LOG_FILE.write_log("Enviando as chaves publicas geradas ...")
     public_keys = (str(n) + "," + str(g) + "\n")
     s.send(public_keys.encode())
     LOG_FILE.log_send(public_keys)
@@ -45,7 +45,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     LOG_FILE.log_send(my_key)
 
     # calcula a chave secreta
-    LOG_FILE.write_log("Chave secreta estabelecida, comunicação criptografada pode iniciar.")
+    LOG_FILE.write_log("Chave secreta estabelecida, comunicacao criptografada pode iniciar.")
     SECRET_KEY = (server_key ** PRIVATE_KEY) % n
 
     # Abre o arquivo de dados a ser enviado
@@ -53,13 +53,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         lines = f.readlines()
         for line in lines:
 
-            encrypted_msg = cryp.encrypt(line, SECRET_KEY)
+            encrypted_msg = cryp.encrypt(line, SECRET_KEY + 1)
             # envia cada linha
             s.send(encrypted_msg)
             LOG_FILE.log_send(line)
 
             encrypted_reply = s.recv(1024)
-            reply = cryp.decrypt(encrypted_reply, SECRET_KEY)
+            reply = cryp.decrypt(encrypted_reply, SECRET_KEY + 1)
             LOG_FILE.log_recv(reply)
 
             if 'fin' in reply:

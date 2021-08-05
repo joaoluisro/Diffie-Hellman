@@ -5,6 +5,8 @@ theme:
   name: material
   highlightjs:  true
   language: pt
+  palette:
+    primary:  red
   features:
     - header.autohide
     - navigations.tabs
